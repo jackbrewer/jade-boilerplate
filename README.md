@@ -1,4 +1,5 @@
-jade-boilerpllate
-=================
+# Stylus Boilerplate
 
-Work in progress: A base set of Jade files to kickoff a node project.
+A base set of Jade files to get started in node projects.
+
+Many files still need organising / moving. Useful as a reference for now, but things *will* change.
