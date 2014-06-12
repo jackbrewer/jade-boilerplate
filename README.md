@@ -1,4 +1,4 @@
-# Stylus Boilerplate
+# Jade Boilerplate
 
 A base set of Jade files to get started in node projects.
 
