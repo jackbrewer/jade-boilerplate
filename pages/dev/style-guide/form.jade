@@ -1,0 +1,230 @@
+extend /default
+
+block content
+
+  h1 Form Elements
+
+  h2 Notifications
+
+  .notification
+    strong Thanks
+    p You have successfully submitted the form
+
+  .notification.notification--warning
+    strong Thanks
+    p You have successfully submitted the form
+
+  .notification.notification--info
+    strong Thanks
+    p You have successfully submitted the form
+
+  .notification.notification--success
+    strong Thanks
+    p You have successfully submitted the form
+
+  .notification.notification--error
+    strong Oops! Something isn’t right.
+    p Please check the form and try again.
+    ul
+      li The “Text Input” field is required. Please supply a value.
+      li Please ensure your email address is written in the correct format.
+      li Please select a date.
+
+  hr
+
+  form(action='#')
+
+    h2 Text Based Controls
+
+    input.control.control--text(type='text', name='', placeholder='Text Input')
+    input.control.control--text(type='password', name='', placeholder='Password Input')
+    input.control.control--text(type='email', name='', placeholder='Email Input')
+    input.control.control--text(type='url', name='', placeholder='URL Input')
+    input.control.control--text(type='tel', name='', placeholder='Tel Input')
+    input.control.control--text(type='search', name='', placeholder='Search Input')
+    input.control.control--text(type='number', name='', placeholder='Number Input')
+    textarea.control.control--text.control--multilined(placeholder='Textarea', cols='10', rows='5')
+
+    input.control.control--text(type='text', name='', placeholder='Datalist Input', list='datalist')
+    datalist#datalist
+      each i in [1,2,3,4,5,6,7,8,9]
+        option(value='Option #{i}') Option #{i}
+
+    output.control.control--text(name='') Output
+
+    input.control.control--text(type='text', name='', placeholder='Disabled Text Input', disabled)
+
+    hr
+
+    h2 Choice Based Controls
+
+    select.control.control--choice(name='')
+      each i in [1,2,3,4,5,6,7,8,9]
+        option(value=i) Option #{i}
+
+    select.control.control--choice.control--multilined(multiple, name='')
+      each i in [1,2,3,4,5,6,7,8,9]
+        option(value=i) Option #{i}
+
+    hr
+
+    h2 Boolean Controls
+
+    input.control.control--boolean(type='radio', name='')
+    input.control.control--boolean(type='checkbox', name='')
+
+    hr
+
+    h2 File Controls
+
+    input.control.control--file(type='file', name='')
+
+    hr
+
+    h2 Buttons
+
+    .btn-group
+      input.btn.btn--primary(type='submit', value='Submit Input')
+      input.btn(type='reset', value='Clear Input')
+
+    .btn-group
+      button.btn.btn--primary(type='submit') Submit Button
+      button.btn(type='reset') Clear Button
+
+    hr
+
+    h2 Fields
+
+    .field
+      label.field__question
+        | First Name
+        abbr.field__question__required *
+      .field__answer
+        input.control.control--text(type='text', placeholder='John')
+      .field__text.field__text--assistance Your first name
+      .field__text.field__text--feedback.field__text--feedback--error
+        | &times; This is required
+
+    hr
+
+    .field
+      label
+        span.field__question
+          | Last Name
+          abbr.field__question__required *
+        .field__answer
+          input.control.control--text(type='text', placeholder='John')
+        .field__text.field__text--assistance Your first name
+        .field__text.field__text--feedback.field__text--feedback--error This is required
+
+    hr
+
+
+    .field
+      label.field__question
+        | Date of birth
+        abbr.field__question__required *
+      .field__answer
+        .grid
+          .grid__item.one-third
+            select.control.control--choice
+              each i in [1,2,3,4,5,6,7,8,9]
+                option(value='i') Option #{i}
+          .grid__item.one-third
+            select.control.control--choice
+              each i in [1,2,3,4,5,6,7,8,9]
+                option(value='i') Option #{i}
+          .grid__item.one-third
+            select.control.control--choice
+              each i in [1,2,3,4,5,6,7,8,9]
+                option(value='i') Option #{i}
+
+      .field__text.field__text--assistance The date you were born
+      .field__text.field__text--feedback.field__text--feedback--error This is required
+
+    hr
+
+    .field
+      .grid
+        .grid__item.one-third
+          label.field__question
+            | Address
+            abbr.field__question__required *
+        .grid__item.two-thirds
+          .field__answer
+            textarea.control.control--text.control--multilined(placeholder='123 Fake Street', cols='10', rows='5')
+          .field__text.field__text--assistance Where you live!
+          .field__text.field__text--feedback.field__text--feedback--success
+            | &#10004; Well done!
+
+    hr
+
+    .field
+      .grid
+        .grid__item.one-third
+          label.field__question
+            | Favourite Colour
+            abbr.field__question__required *
+        .grid__item.two-thirds
+          ul.field__answer-list
+            li.field__answer
+              label
+                input.control.control--boolean(type='checkbox')
+                | Blue
+            li.field__answer
+              label
+                input.control.control--boolean(type='checkbox')
+                | Green
+            li.field__answer
+              label
+                | Red
+                input.control.control--boolean.control--boolean--right(type='checkbox')
+            li.field__answer
+              label
+                | Yellow
+                input.control.control--boolean.control--boolean--right(type='checkbox')
+          .field__text.field__text--assistance
+            p Your favourite color
+          .field__text.field__text--feedback.field__text--feedback--error This is required
+
+    hr
+
+    input.btn.btn--primary(type='submit', value='Join')
+
+    hr
+
+  h2 Custom forms
+
+  form(action='#')
+    h3 Search
+
+    .grid
+      .grid__item.two-thirds
+        .field
+          label.field__question.hidden Search
+          .field__answer
+            input.control.control--text(type='search', placeholder='Justin Beiber')
+          .field__text.field__text--small.field__text--assistance Your search term could be 'Justin Beiber'
+      .grid__item.one-third
+        input.btn.btn--primary(type='submit', value='Search')
+
+  hr
+
+  form(action='#')
+    h3 Login
+
+    .grid
+      .grid__item.one-third
+        .field
+          label.field__question.hidden Username
+          .field__answer
+            input.control.control--text(type='text', placeholder='johnsmith')
+          .field__text.field__text--small.field__text--assistance Your username
+      .grid__item.one-third
+        .field
+          label.field__question.hidden Password
+          .field__answer
+            input.control.control--text(type='password', placeholder='••••••••')
+          .field__text.field__text--small.field__text--assistance Your password
+      .grid__item.one-third
+        input.btn.btn--primary(type='submit', value='Login')

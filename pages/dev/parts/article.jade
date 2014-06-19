@@ -1,0 +1,67 @@
+extend /default
+
+block title
+  title Article | #{properties.browserTitle}
+block metaAuthor
+  meta(name='author', content='Article Author')
+block metaDescription
+  meta(name='description', content='Custom description for article page')
+block metaKeywords
+  meta(name='keywords', content='Artlice, Specific, Keywords')
+
+block content
+
+  article.article
+    header.article__header
+      h1 Heading 1
+
+    .article__content
+
+      p.standfirst Etiam at risus et justo dignissim congue. Donec congue lacinia dui, 
+        a(href='#') a porttitor lectus
+        |  condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus.
+
+      p Nullam in dui mauris. Vivamus 
+        a(href='#') hendrerit arcu
+        |  sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent.
+
+      blockquote.blockquote
+        .blockquote-content
+          p Vivamus hendrerit arcu sed erat molestie vehicula.
+          small Firstname Lastname – Position, Company.
+
+      p In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.
+
+      h2 Heading 2
+      p Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non.
+      ol
+        li List Item 1
+        li List Item 2
+        li List Item 3
+        li Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui.
+        li List Item 5
+      h3 Heading 3
+      p Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non.
+      p
+        img(src='http://img.clock.co.uk/700x700', alt='', width='', height='')
+      h4 Heading 4
+      p Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non.
+      ul
+        li List Item 1
+        li List Item 2
+        li Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui.
+        li List Item 4
+        li List Item 5
+      h5 Heading 5
+      p Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non.
+      p
+        img(src='http://img.clock.co.uk/400x400', alt='', width='', height='')
+      h6 Heading 6
+      p Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non.
+
+    footer.article__footer
+      .social-sharing
+        ul
+          li Facebook
+          li Twitter
+          li Google+

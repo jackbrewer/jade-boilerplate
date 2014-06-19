@@ -1,0 +1,122 @@
+extend /default
+
+block content
+
+  h1 Style Guide
+
+  h2 Buttons
+
+  p
+    a.btn(href='#') Anchor Tag
+    |  
+    button.btn(href='#') Button Element
+    |  
+    input.btn(type='submit', value='Form Input')
+
+  p
+    a.btn.btn--primary(href='#') Anchor Tag
+    |  
+    button.btn.btn--primary(href='#') Button Element
+    |  
+    input.btn.btn--primary(type='submit', value='Form Input')
+
+  p
+    a.text-btn(href='#') Anchor Tag as Text
+    |  &nbsp; 
+    button.text-btn(href='#') Button Element as Text
+    |  &nbsp; 
+    input.text-btn(type='submit', value='Form Input as Text')
+
+  hr
+
+  h2 Meta Icons
+
+  .favicon
+    img(src=versionPath('/static/images/meta/favicon.ico'), alt='favicon')
+  .ios-icon.js-ios-icon
+    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-57x57.png'), alt='iPhone')
+    p …
+  .ios-icon.js-ios-icon
+    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-72x72.png'), alt='iPad')
+    p …
+  .ios-icon.js-ios-icon
+    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-76x76.png'), alt='iPad - iOS7')
+    p …
+  .ios-icon.js-ios-icon
+    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-114x114.png'), alt='iPhone (Retina)')
+    p …
+  .ios-icon.js-ios-icon
+    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-120x120.png'), alt='iPhone (Retina) - iOS7')
+    p …
+  .ios-icon.js-ios-icon
+    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-144x144.png'), alt='iPad (Retina)')
+    p …
+  .ios-icon.js-ios-icon
+    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-152x152.png'), alt='iPad (Retina) - iOS7')
+    p …
+
+  .ms-tile.js-ms-tile
+    img(src=versionPath('/static/images/meta/microsoft-pinned-tile-image-144x144.png'), alt='Windows Pinned Tile')
+    p …
+
+  hr
+
+  h2 Tables
+  table
+
+    thead
+      tr
+        th Model number
+        th Manufacturer
+        th Class
+        th Purpose
+
+    tbody
+      tr
+        td 3PO-series
+        td Cybot Galactica
+        td 3rd
+        td Protocol
+      tr
+        td GNK-series
+        td Industrial Automaton
+        td 5th
+        td Power
+      tr
+        td MSE-6-series
+        td Rebaxan Columni
+        td 5th
+        td Maintenance/Message
+      tr
+        td R2-series
+        td Industrial Automaton
+        td 2nd
+        td Navigation/Repair
+      tr
+        td Viper-series
+        td Arakyd Industries
+        td 2nd
+        td Exploration/Espionage
+
+
+append scripts
+  script.
+    var msTileColor = $('meta[name=\'msapplication-TileColor\']').attr('content')
+      , msAppName = $('meta[name=\'application-name\']').attr('content')
+      , iosWebAppTitle = $('meta[name=\'apple-mobile-web-app-title\']').attr('content').substr(0, 12)
+      , staticMsTile = $('.js-ms-tile')
+      , staticIosIcon = $('.js-ios-icon')
+
+    staticMsTile.css({ 'background-color': msTileColor }).find('p').text(msAppName).addClass(getContrastYIQ(msTileColor.replace('#', '')))
+
+    staticIosIcon.each(function(){
+        $(this).find('p').text(iosWebAppTitle)
+      })
+
+    function getContrastYIQ(hexcolor){
+      var r = parseInt(hexcolor.substr(0,2),16);
+      var g = parseInt(hexcolor.substr(2,2),16);
+      var b = parseInt(hexcolor.substr(4,2),16);
+      var yiq = ((r*299)+(g*587)+(b*114))/1000;
+      return (yiq >= 128) ? 'dark' : 'light';
+    }
