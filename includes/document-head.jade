@@ -3,8 +3,8 @@
 //-
 
 meta(charset='utf-8')
-meta(http-equiv='X-UA-Compatible' content='IE=edge')
-meta(name='viewport' content='initial-scale=1.0, maximum-scale=2.0')
+meta(http-equiv='X-UA-Compatible', content='IE=edge')
+meta(name='viewport', content='initial-scale=1.0, maximum-scale=2.0')
 
 //- Project Specific
 meta(name='creator', content=properties.metaCreator)
@@ -15,9 +15,9 @@ block metaAuthor
   if properties.metaAuthor
     meta(name='author', content=properties.metaAuthor)
 block metaDescription
-  meta(name='description' content=properties.metaDescription)
+  meta(name='description', content=properties.metaDescription)
 block metaKeywords
-  meta(name='keywords' content=properties.metaKeywords)
+  meta(name='keywords', content=properties.metaKeywords)
 
 
 //-
@@ -33,11 +33,11 @@ block title
 //- Conditional comments to load a completely separate file for IE8
 //-
 
-<!--[if !IE]><!-->
-link(rel='stylesheet' href='/static/css/index.css')
+<!--[if gt IE 8]><!-->
+link(rel='stylesheet', href=versionPath('/static/css/index.css'))
 <!--<![endif]-->
 <!--[if lte IE 8]>
-link(rel='stylesheet' href='/static/css/index-ie8.css')
+link(rel='stylesheet', href=versionPath('/static/css/index-ie8.css'))
 <![endif]-->
 
 
@@ -46,9 +46,9 @@ link(rel='stylesheet' href='/static/css/index-ie8.css')
 //-
 
 block headScripts
-  script(src='/static/js/lib/vendor/Modernizr.js')
+  script(src=versionPath('/static/js/lib/vendor/Modernizr.js'))
   <!--[if lte IE 8]>
-  script(src='/static/js/lib/vendor/html5shiv.js')
+  script(src=versionPath('/static/js/lib/vendor/html5shiv.js'))
   <![endif]-->
 
 
@@ -56,27 +56,27 @@ block headScripts
 //- ICONS / IMAGES / DEVICE SPECIFICS
 //-
 
-link(rel='shortcut icon' href='/static/images/meta/favicon.ico')
+link(rel='shortcut icon', href=versionPath('/static/images/meta/favicon.ico'))
 
 
 //-
 //- iOS App Icons / Title
 //-
 
-meta(name='apple-mobile-web-app-title' content=properties.iosProjectTitle)
-link(rel='apple-touch-icon-precomposed' href='/static/images/meta/apple-touch-icon-precomposed-57x57.png'   sizes='57x57')
-link(rel='apple-touch-icon-precomposed' href='/static/images/meta/apple-touch-icon-precomposed-114x114.png' sizes='114x114')
-link(rel='apple-touch-icon-precomposed' href='/static/images/meta/apple-touch-icon-precomposed-120x120.png' sizes='120x120')
-link(rel='apple-touch-icon-precomposed' href='/static/images/meta/apple-touch-icon-precomposed-72x72.png'   sizes='72x72')
-link(rel='apple-touch-icon-precomposed' href='/static/images/meta/apple-touch-icon-precomposed-76x76.png'   sizes='76x76')
-link(rel='apple-touch-icon-precomposed' href='/static/images/meta/apple-touch-icon-precomposed-144x144.png' sizes='144x144')
-link(rel='apple-touch-icon-precomposed' href='/static/images/meta/apple-touch-icon-precomposed-152x152.png' sizes='152x152')
+meta(name='apple-mobile-web-app-title', content=properties.iosProjectTitle)
+link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-57x57.png'),   sizes='57x57')
+link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-114x114.png'), sizes='114x114')
+link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-120x120.png'), sizes='120x120')
+link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-72x72.png'),   sizes='72x72')
+link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-76x76.png'),   sizes='76x76')
+link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-144x144.png'), sizes='144x144')
+link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-152x152.png'), sizes='152x152')
 
 
 //-
 //- Microsoft Pinned Tile
 //-
 
-meta(name='application-name' content=properties.msTileProjectTitle)
-meta(name='msapplication-TileImage' content='/static/images/meta/microsoft-pinned-tile-image-144x144.png')
-meta(name='msapplication-TileColor' content=properties.msTileBackground)
+meta(name='application-name', content=properties.msTileProjectTitle)
+meta(name='msapplication-TileImage', content=versionPath('/static/images/meta/microsoft-pinned-tile-image-144x144.png'))
+meta(name='msapplication-TileColor', content=properties.msTileBackground)
