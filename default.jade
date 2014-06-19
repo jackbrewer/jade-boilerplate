@@ -5,22 +5,27 @@ html.no-js(lang='en')
 
   body
 
-    //- Ensure correct analytic properties are set before uncommenting.
+    //- Ensure correct properties are set for ALL environments before uncommenting.
     //- include includes/analytics
 
     block body-start
 
-    block main-header
-      include includes/main-header
+    block a11y-navigation
+      include layout/a11y-navigation
 
-    block main-navigation
-      include includes/main-navigation
+    .centering
 
-    main.main-content(role='main')
-      block content
+      block main-header
+        include layout/main-header
 
-    block main-footer
-      include includes/main-footer
+      block main-navigation
+        include layout/main-navigation
+
+      main#content.main-content(role='main')
+        block content
+
+      block main-footer
+        include layout/main-footer
 
     block body-end
 
@@ -30,4 +35,4 @@ html.no-js(lang='en')
       window.jQuery || document.write('<script src="/static/js/lib/vendor/jquery-1.11.0.min.js"><\/script>')
 
     block scripts
-      script(src='/static/js/lib/build/index.js')
+      script(src=versionPath('/static/js/build/index.js'))
