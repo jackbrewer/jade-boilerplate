@@ -7,17 +7,21 @@ meta(http-equiv='X-UA-Compatible', content='IE=edge')
 meta(name='viewport', content='initial-scale=1.0, maximum-scale=2.0')
 
 //- Project Specific
-meta(name='creator', content=properties.metaCreator)
-meta(name='publisher', content=properties.metaPublisher)
+if properties.metaCreator && properties.metaCreator != ''
+  meta(name='creator', content=properties.metaCreator)
+if properties.metaPublisher && properties.metaPublisher != ''
+  meta(name='publisher', content=properties.metaPublisher)
 
 //- Page Specific
 block metaAuthor
-  if properties.metaAuthor
+  if properties.metaAuthor && properties.metaAuthor != ''
     meta(name='author', content=properties.metaAuthor)
 block metaDescription
-  meta(name='description', content=properties.metaDescription)
+  if properties.metaDescription && properties.metaDescription != ''
+    meta(name='description', content=properties.metaDescription)
 block metaKeywords
-  meta(name='keywords', content=properties.metaKeywords)
+  if properties.metaKeywords && properties.metaKeywords != ''
+    meta(name='keywords', content=properties.metaKeywords)
 
 
 //-
