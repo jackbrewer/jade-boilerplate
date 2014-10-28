@@ -1,11 +1,28 @@
 extend /default
 
+mixin form--in-page-search()
+  form.form--in-page-search(action='/search', method='get')
+    .field
+      .field__question.vhidden
+        label(for='search') Search
+      .field__answer
+        input.control.control--text.js-field-autoselect(type='search', id='search', name='q', placeholder='I’m looking for…', autocomplete='off')
+    .field
+      button.btn(type='submit') Search
+
 block content
 
   h1 Looks like there’s a problem
 
   p We’re sorry but we couldn’t find the page you were looking for.
 
-  p Please try another address or go to the 
-    a(href='/') homepage
+  //- If search is not available…
+  p Please try another address or 
+    a(href='/') visit the homepage
     | .
+
+  //- If search is available…
+  //- p Please try a search or 
+  //-   a(href='/') visit the homepage
+  //-   | .
+  //- +form--in-page-search()

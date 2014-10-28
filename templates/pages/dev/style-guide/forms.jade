@@ -1,0 +1,182 @@
+extend /default
+
+block main-header
+block main-navigation
+block main-footer
+
+block content
+
+  h1 Form Elements
+
+  form(action='#')
+
+    h2 Basic Field Layouts
+
+    h4 Simple text field
+    .field
+      .field__question
+        label(for='first-name') First Name
+      .field__answer
+        input.control.control--text(type='text', name='first-name', id='first-name', placeholder='John')
+      .field__assistance Your first name
+
+    .field.field--error
+      .field__question
+        label(for='last-name') Last Name
+      .field__answer
+        input.control.control--text(type='text', name='last-name', id='last-name', placeholder='Smith')
+      .field__assistance
+        | Your Last name
+      .field__feedback
+        | This is required
+
+    .field
+      .field__question
+        | Favourite Colour
+      .field__answer
+        ul.list--unstyled
+          li
+            label
+              input.control.control--boolean(type='radio', name='colour')
+              span Red
+          li
+            label
+              input.control.control--boolean(type='radio', name='colour')
+              span Blue
+          li
+            label
+              input.control.control--boolean(type='radio', name='colour')
+              span Green
+
+
+    .field
+      .field__answer
+        label
+          input.control.control--boolean(type='checkbox')
+          span I agree to the terms and conditions
+
+    hr
+
+    h4 Multi-control field
+    .field
+      .field__question
+        | Date of birth
+      .field__assistance The date you were born
+      .field__answer
+        .grid
+          .grid__item.one-third
+            label
+              span.vhidden
+                | Choose a Day
+              select.control.control--choice
+                option(value='') Choose a Day
+                - for (var i = 1; i <= 31; ++i)
+                  option(value=i)= i
+          .grid__item.one-third
+            label
+              span.vhidden
+                | Choose a Month
+              select.control.control--choice
+                option(value='') Choose a Month
+                - for i, x in ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
+                  option(value=x + 1)= i
+          .grid__item.one-third
+            label
+              span.vhidden
+                | Choose a Year
+              select.control.control--choice
+                option(value='') Choose a Year
+                //- Output 21 years, backwards from now (e.g. 2014-1994)
+                - var year = (new Date()).getFullYear()
+                - for (var i = 0; i <= 20; ++i)
+                  option(value=year)= year
+                  - year--
+
+      .field__feedback This is required
+
+    hr
+
+    .field
+      .grid
+        .grid__item.one-third
+          label.field__question
+            | Address
+            abbr.field__question__required *
+        .grid__item.two-thirds
+          .field__answer
+            textarea.control.control--text.control--multilined(placeholder='123 Fake Street', cols='10', rows='5')
+          .field__assistance Where you live!
+          .field__feedback
+            | &#10004; Well done!
+
+    hr
+
+    .field
+      .grid
+        .grid__item.one-third
+          .field__question Favourite Colour
+            abbr.field__question__required *
+          .field__assistance
+            | Your favourite color
+        .grid__item.two-thirds
+          .field__answer
+            ul.list--unstyled
+              li
+                label
+                  input.control.control--boolean(type='checkbox')
+                  span Blue
+              li
+                label
+                  input.control.control--boolean(type='checkbox')
+                  span Green
+              li
+                label
+                  span Red
+                  input.control.control--boolean(type='checkbox')
+              li
+                label
+                  span Yellow
+                  input.control.control--boolean(type='checkbox')
+
+          .field__feedback
+            | This is required
+
+    hr
+
+  h2 Custom forms
+
+  form(action='#')
+    .fieldset
+      .grid
+        .grid__item.two-thirds
+          .field
+            .field__question.hidden
+              label(for='keyword') Search
+            .field__answer
+              input.control.control--text(type='search', name='keyword', id='keyword', placeholder='Keyword')
+            .field__assistance Your search term could be 'Clock'
+        .grid__item.one-third
+          input.btn.btn--primary.btn--block(type='submit', value='Search')
+
+  hr
+
+  form(action='#')
+    .fieldset
+      h3 Login
+      .grid
+        .grid__item.one-third
+          .field
+            .field__question.hidden
+              label(for='username') Username
+            .field__answer
+              input.control.control--text(type='text', name='username', id='username', placeholder='johnsmith')
+            .field__assistance Your username
+        .grid__item.one-third
+          .field
+            .field__question.hidden
+              label(for='password') Password
+            .field__answer
+              input.control.control--text(type='password', name='password', id='password', placeholder='••••••••')
+            .field__assistance Your password
+        .grid__item.one-third
+          input.btn.btn--primary.btn--block(type='submit', value='Login')

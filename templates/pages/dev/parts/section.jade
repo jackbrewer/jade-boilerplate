@@ -2,17 +2,14 @@ extend /default
 
 //- TODO: replace placeholder content with expected variables / conditionals in CMS version.
 
-block metaAuthor
-  meta(name='author', content=article.author)
-
 block metaDescription
-  meta(name='description', content=article.meta.description)
+  meta(name='description', content='Custom description for article page')
 
 block canonical
-  link(rel='canonical', href=article.url.canonical)
+  link(rel='canonical', href=canonicalUrl)
 
 block title
-  title article.title | #{config.projectTitle}
+  title Section Title | #{config.projectTitle}
 
 block openGraph
 
@@ -21,13 +18,14 @@ block openGraph
 
   meta(name='twitter:card', content='summary_large_image')
   meta(property='og:type', content='article')
-  meta(property='og:url', content=article.url.initial)
-  meta(property='og:title', content=article.social.title || article.title)
-  meta(property='og:description', content=article.social.description)
+  meta(property='og:url', content=initialUrl)
+  meta(property='og:title', content=article.pageTitle)
+  meta(property='og:description', content=article.pageDescription)
   if article.__images && article.__images.header && article.__images.header[0]
     meta(property='og:image', content=article.__images.header[0])
   else
     meta(property='og:image', content=config.url + versionPath('/assets/img/meta/meta-icon-200x200.png'))
+
 
 block content
   != content

@@ -4,24 +4,23 @@
 
 meta(charset='utf-8')
 meta(http-equiv='X-UA-Compatible', content='IE=edge')
-meta(name='viewport', content='initial-scale=1.0, maximum-scale=2.0')
+meta(name='viewport', content='initial-scale=1')
 
 //- Project Specific
-if properties.metaCreator && properties.metaCreator != ''
-  meta(name='creator', content=properties.metaCreator)
-if properties.metaPublisher && properties.metaPublisher != ''
-  meta(name='publisher', content=properties.metaPublisher)
+if config.meta.creator
+  meta(name='creator', content=config.meta.creator)
+if config.meta.publisher
+  meta(name='publisher', content=config.meta.publisher)
 
-//- Page Specific
+//- Page Specific - overwritten in other templates
 block metaAuthor
-  if properties.metaAuthor && properties.metaAuthor != ''
-    meta(name='author', content=properties.metaAuthor)
+  if config.meta.author
+    meta(name='author', content=config.meta.author)
 block metaDescription
-  if properties.metaDescription && properties.metaDescription != ''
-    meta(name='description', content=properties.metaDescription)
-block metaKeywords
-  if properties.metaKeywords && properties.metaKeywords != ''
-    meta(name='keywords', content=properties.metaKeywords)
+  if config.meta.defaultDescription
+    meta(name='description', content=config.meta.defaultDescription)
+block canonical
+  link(rel='canonical', href=config.url)
 
 
 //-
@@ -29,7 +28,7 @@ block metaKeywords
 //-
 
 block title
-  title #{properties.browserTitle} – #{properties.browserStrapline}
+  title #{config.projectTitle} – #{config.projectStrapline}
 
 
 //-
@@ -38,10 +37,10 @@ block title
 //-
 
 <!--[if gt IE 8]><!-->
-link(rel='stylesheet', href=versionPath('/static/css/index.css'))
+link(rel='stylesheet', href=versionPath('/assets/css/index.css'))
 <!--<![endif]-->
 <!--[if lte IE 8]>
-link(rel='stylesheet', href=versionPath('/static/css/index-ie8.css'))
+link(rel='stylesheet', href=versionPath('/assets/css/index-ie8.css'))
 <![endif]-->
 
 
@@ -50,9 +49,10 @@ link(rel='stylesheet', href=versionPath('/static/css/index-ie8.css'))
 //-
 
 block headScripts
-  script(src=versionPath('/static/js/lib/vendor/Modernizr.js'))
+  script
+    include ../../assets/js/lib/vendor/Modernizr.js
   <!--[if lte IE 8]>
-  script(src=versionPath('/static/js/lib/vendor/html5shiv.js'))
+  script(src=versionPath('/assets/js/lib/vendor/html5shiv.js'))
   <![endif]-->
 
 
@@ -60,27 +60,55 @@ block headScripts
 //- ICONS / IMAGES / DEVICE SPECIFICS
 //-
 
-link(rel='shortcut icon', href=versionPath('/static/images/meta/favicon.ico'))
+link(rel='shortcut icon', href=versionPath('/assets/img/meta/favicon.ico'))
 
 
 //-
 //- iOS App Icons / Title
 //-
 
-meta(name='apple-mobile-web-app-title', content=properties.iosProjectTitle)
-link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-57x57.png'),   sizes='57x57')
-link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-114x114.png'), sizes='114x114')
-link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-120x120.png'), sizes='120x120')
-link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-72x72.png'),   sizes='72x72')
-link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-76x76.png'),   sizes='76x76')
-link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-144x144.png'), sizes='144x144')
-link(rel='apple-touch-icon-precomposed', href=versionPath('/static/images/meta/apple-touch-icon-precomposed-152x152.png'), sizes='152x152')
+meta(name='apple-mobile-web-app-title', content=config.meta.iosTitle)
+link(rel='apple-touch-icon-precomposed', sizes='57x57',   href=versionPath('/assets/img/meta/apple-touch-icon-precomposed-57x57.png'))
+link(rel='apple-touch-icon-precomposed', sizes='72x72',   href=versionPath('/assets/img/meta/apple-touch-icon-precomposed-72x72.png'))
+link(rel='apple-touch-icon-precomposed', sizes='76x76',   href=versionPath('/assets/img/meta/apple-touch-icon-precomposed-76x76.png'))
+link(rel='apple-touch-icon-precomposed', sizes='114x114', href=versionPath('/assets/img/meta/apple-touch-icon-precomposed-114x114.png'))
+link(rel='apple-touch-icon-precomposed', sizes='120x120', href=versionPath('/assets/img/meta/apple-touch-icon-precomposed-120x120.png'))
+link(rel='apple-touch-icon-precomposed', sizes='144x144', href=versionPath('/assets/img/meta/apple-touch-icon-precomposed-144x144.png'))
+link(rel='apple-touch-icon-precomposed', sizes='152x152', href=versionPath('/assets/img/meta/apple-touch-icon-precomposed-152x152.png'))
 
 
 //-
 //- Microsoft Pinned Tile
 //-
 
-meta(name='application-name', content=properties.msTileProjectTitle)
-meta(name='msapplication-TileImage', content=versionPath('/static/images/meta/microsoft-pinned-tile-image-144x144.png'))
-meta(name='msapplication-TileColor', content=properties.msTileBackground)
+meta(name='application-name', content=config.meta.msTitle)
+meta(name='msapplication-TileImage', content=versionPath('/assets/img/meta/microsoft-pinned-tile-image-144x144.png'))
+meta(name='msapplication-TileColor', content=config.meta.msTileColor)
+
+
+//-
+//- Google Webmaster Tools
+//-
+
+if config.meta.googleSiteVerification
+  meta(name='google-site-verification', content=config.meta.googleSiteVerification)
+
+
+//-
+//- OpenGraph / Twitter Cards
+//-
+
+//- Global
+meta(property='og:site_name', content=config.projectTitle)
+meta(name='twitter:site', content=config.meta.ogTwitterUser)
+
+//- Page Specific
+block openGraph
+
+  //- Section
+  meta(name='twitter:card', content='summary')
+  meta(property='og:type', content='website')
+  meta(property='og:url', content=initialUrl || config.url)
+  meta(property='og:title', content=pageTitle || config.projectTitle)
+  meta(property='og:description', content=pageDescription || config.projectStrapline)
+  meta(property='og:image', content=config.url + versionPath('/assets/img/meta/meta-icon-200x200.png'))

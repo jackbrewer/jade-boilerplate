@@ -32,31 +32,31 @@ block content
   h2 Meta Icons
 
   .favicon
-    img(src=versionPath('/static/images/meta/favicon.ico'), alt='favicon')
+    img(src=versionPath('/assets/img/meta/favicon.ico'), alt='favicon')
   .ios-icon.js-ios-icon
-    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-57x57.png'), alt='iPhone')
+    img(src=versionPath('/assets/img/meta/apple-touch-icon-precomposed-57x57.png'), alt='iPhone')
     p …
   .ios-icon.js-ios-icon
-    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-72x72.png'), alt='iPad')
+    img(src=versionPath('/assets/img/meta/apple-touch-icon-precomposed-72x72.png'), alt='iPad')
     p …
   .ios-icon.js-ios-icon
-    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-76x76.png'), alt='iPad - iOS7')
+    img(src=versionPath('/assets/img/meta/apple-touch-icon-precomposed-76x76.png'), alt='iPad - iOS7')
     p …
   .ios-icon.js-ios-icon
-    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-114x114.png'), alt='iPhone (Retina)')
+    img(src=versionPath('/assets/img/meta/apple-touch-icon-precomposed-114x114.png'), alt='iPhone (Retina)')
     p …
   .ios-icon.js-ios-icon
-    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-120x120.png'), alt='iPhone (Retina) - iOS7')
+    img(src=versionPath('/assets/img/meta/apple-touch-icon-precomposed-120x120.png'), alt='iPhone (Retina) - iOS7')
     p …
   .ios-icon.js-ios-icon
-    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-144x144.png'), alt='iPad (Retina)')
+    img(src=versionPath('/assets/img/meta/apple-touch-icon-precomposed-144x144.png'), alt='iPad (Retina)')
     p …
   .ios-icon.js-ios-icon
-    img(src=versionPath('/static/images/meta/apple-touch-icon-precomposed-152x152.png'), alt='iPad (Retina) - iOS7')
+    img(src=versionPath('/assets/img/meta/apple-touch-icon-precomposed-152x152.png'), alt='iPad (Retina) - iOS7')
     p …
 
   .ms-tile.js-ms-tile
-    img(src=versionPath('/static/images/meta/microsoft-pinned-tile-image-144x144.png'), alt='Windows Pinned Tile')
+    img(src=versionPath('/assets/img/meta/microsoft-pinned-tile-image-144x144.png'), alt='Windows Pinned Tile')
     p …
 
   hr
@@ -97,6 +97,39 @@ block content
         td Arakyd Industries
         td 2nd
         td Exploration/Espionage
+
+  hr
+
+  h2 Notifications
+
+  .notification
+    strong Thanks
+    p You have successfully submitted the form
+
+  .notification.notification--warning
+    strong Thanks
+    p You have successfully submitted the form
+
+  .notification.notification--info
+    strong Thanks
+    p You have successfully submitted the form
+
+  .notification.notification--success
+    strong Thanks
+    p You have successfully submitted the form
+
+  .notification.notification--error
+    strong Oops! Something isn’t right.
+    p Please check the form and try again.
+    ul
+      li The “Text Input” field is required. Please supply a value.
+      li Please ensure your email address is written in the correct format.
+      li Please select a date.
+
+
+
+
+
 
 
 append scripts

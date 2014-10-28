@@ -1,0 +1,18 @@
+{
+  "article": {
+    "author": "Firstname Lastname",
+    "title": "Gang Jailed",
+
+    "social": {
+      "title": "Gang Jailed",
+      "description": "Hoverboard Rampage Destroys Courthouse"
+    },
+
+    "url": {
+      "initial": "http://example.com/section/page?a=1&b=2#id",
+      "canonical": "http://example.com/section/page",
+      "slug": "/section/page",
+    }
+
+  }
+}

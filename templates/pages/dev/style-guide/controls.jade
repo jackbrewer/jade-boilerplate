@@ -1,0 +1,65 @@
+extend /default
+
+block content
+
+  h1 Form Elements
+
+  form(action='#')
+
+    h2 Controls
+    h4 Text Based Controls
+
+    input.control.control--text(type='text', name='', placeholder='Text Input')
+    input.control.control--text(type='password', name='', placeholder='Password Input')
+    input.control.control--text(type='email', name='', placeholder='Email Input')
+    input.control.control--text(type='url', name='', placeholder='URL Input')
+    input.control.control--text(type='tel', name='', placeholder='Tel Input')
+    input.control.control--text(type='search', name='', placeholder='Search Input')
+    input.control.control--text(type='number', name='', placeholder='Number Input')
+    textarea.control.control--text.control--multilined(placeholder='Textarea', cols='10', rows='5')
+
+    input.control.control--text(type='text', name='', placeholder='Datalist Input', list='datalist')
+    datalist#datalist
+      each i in [1,2,3,4,5,6,7,8,9]
+        option(value='Option #{i}') Option #{i}
+
+    output.control.control--text(name='') Output
+
+    input.control.control--text(type='text', name='', placeholder='Disabled Text Input', disabled)
+
+    hr
+
+    h4 Choice Based Controls
+
+    select.control.control--choice(name='')
+      each i in [1,2,3,4,5,6,7,8,9]
+        option(value=i) Option #{i}
+
+    select.control.control--choice.control--multilined(multiple, name='')
+      each i in [1,2,3,4,5,6,7,8,9]
+        option(value=i) Option #{i}
+
+    hr
+
+    h4 Boolean Controls
+
+    input.control.control--boolean(type='radio', name='')
+    input.control.control--boolean(type='checkbox', name='')
+
+    hr
+
+    h4 File Controls
+
+    input.control.control--file(type='file', name='')
+
+    hr
+
+    h2 Buttons
+
+    .btn-group
+      input.btn.btn--primary(type='submit', value='Submit Input')
+      input.btn(type='reset', value='Clear Input')
+
+    .btn-group
+      button.btn.btn--primary(type='submit') Submit Button
+      button.btn(type='reset') Clear Button

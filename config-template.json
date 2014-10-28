@@ -1,0 +1,36 @@
+{
+  "global": {
+    "projectTitle": "Jade Boilerplate",
+    "projectStrapline": "A base set of Jade files to kickoff a node project.",
+
+    "meta": {
+      "creator": "Clock – http://www.clock.co.uk",
+      "publisher": null,
+      "author": null,
+      "defaultDescription": null,
+      "iosTitle": "Jade BP",
+      "msTitle": "Jade Boilerplate",
+      "msTileColor": "#2b6ede",
+      "ogTwitterUser": "@example",
+      "googleSiteVerification": "XXXXXXXXXXX"
+    },
+
+    "formats": {
+      "date": {
+        "iso": "YYYY-MM-DD",
+        "short": "DD MMM YYYY",
+        "long": "dddd DD MMMM YYYY"
+      },
+      "dateTime": {
+        "iso": "YYYY-MM-DDTHH:mm:ss",
+        "short": "HH:mm DD MMM \"YY",
+        "long": "h:mma on dddd D MMMM YYYY",
+        "longTimeZone": "HH:mm A [on] dddd D MMMM YYYY"
+      }
+    },
+
+    "domain": "example.com",
+    "url": "http://example.com",
+    "gaTrackingId": "UA-XXXXXXXX-1"
+  }
+}
